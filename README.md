@@ -12,6 +12,8 @@ My primary goal was to focus on the core functionality of injection detection wi
 ``DLLInjectionDetector.exe -m``  : Start in monitoring mode (monitoring only)  
 ``DLLInjectionDetector.exe -g``  : Start in guard mode (blocking dll injections)  
 
+Afterwards the DLLInjectionDetector is ready and waiting for DLL injection attempts. You can use the TestDLL.dll provided with the solution for example.
+
 ## A Brief Introduction to DLL Injection  
 
 The easiest way to inject a DLL into a running process is to use the Windows APIs *OpenProcess*, *VirtualAllocEx*, *WriteProcessMemory*, *GetProcAddress* and *CreateRemoteThread*:  
