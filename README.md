@@ -5,7 +5,7 @@ A DLL Injection Detector for Windows.
 ## Disclaimer  
 
 The DLL Injection Detector currently supports only x86. However, it can be easily adapted for x64 by replacing the hooking engine with one that is compatible with 64-bit environments, such as **Microsoft Detours**.
-My primary goal was to focus on the core functionality of injection detection without introducing unnecessary overhead from large external libraries. Since API hooking is significantly simpler in x86, I chose to implement a minimalistic, custom hooking mechanism that is sufficient for the intended purpose.  
+My primary goal was to focus on the core functionality of injection detection without introducing unnecessary overhead from large external libraries. Since API hooking is significantly simpler in x86, I chose to implement a minimalistic, custom hooking engine that is sufficient for the intended purpose.  
 
 ## Usage  
 
