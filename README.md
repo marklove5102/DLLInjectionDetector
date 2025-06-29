@@ -110,3 +110,4 @@ It is also worth mentioning that within the method ``::HandleBaseThreadInitThunk
 | Process Hacker 2.39.124 	| Standard Injection 	| blocked 	|
 | ScyllaHide              	| Normal Injection   	| blocked 	|
 | ScyllaHide              	| Stealth Injection  	| blocked 	|
+| DrNseven                	| SetWindowsHookEx  	| blocked 	|
