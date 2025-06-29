@@ -1,12 +1,13 @@
-#include <iostream>
 #include <string>
 #include "InjectionMonitor.h"
 #include "..\InjectionDetector\InjectionDetector.h"
+#include "..\LogService\ILogService.h"
 
 namespace InjectionDetector
 {
-  InjectionMonitor::InjectionMonitor()
+  InjectionMonitor::InjectionMonitor(ILogService* logService)
   {
+    _logService = logService;
     _dllCreationThreadDetected = false;
   }
 
@@ -19,7 +20,10 @@ namespace InjectionDetector
     if (_dllCreationThreadDetected)
     {
       _dllCreationThreadDetected = false;
-      std::wcout << std::endl << "LdrLoadDll: Detected dll " << DllName->Buffer << std::endl;
+
+      std::wstring output(L"LdrLoadDll: Detected dll ");
+      output.append(DllName->Buffer);
+      _logService->Log(output.c_str());
     }
     return InjectionDetector::Instance()->CallLdrLoadDllStub(DllPath, DllCharacteristics, DllName, DllHandle);
   }
@@ -31,7 +35,9 @@ namespace InjectionDetector
       auto moduleHandle = GetModuleHandleW(FileName); // Checking if the filename belongs to a module. When injected, it is already available using GetModuleHandleW at this point.
       if (moduleHandle != nullptr)
       {
-        std::wcout << std::endl << "RtlGetFullPathName_U: Detected dll " << FileName << std::endl;
+        std::wstring output(L"RtlGetFullPathName_U: Detected dll ");
+        output.append(FileName);
+        _logService->Log(output.c_str());
       }
     }
     return InjectionDetector::Instance()->CallRtlGetFullPathName_UStub(FileName, BufferLength, Buffer, FilePart);
@@ -42,34 +48,34 @@ namespace InjectionDetector
     if ((DWORD)lpStartAddress == (DWORD)GetProcAddress(GetModuleHandle(L"kernel32.dll"), "LoadLibraryA"))
     {
       _dllCreationThreadDetected = true;
-      std::wcout << std::endl << "BaseThreadInitThunk: Detected thread creation on LoadLibraryA" << std::endl;
+      _logService->Log(L"BaseThreadInitThunk: Detected thread creation on LoadLibraryA");
     }
     else if ((DWORD)lpStartAddress == (DWORD)GetProcAddress(GetModuleHandle(L"kernel32.dll"), "LoadLibraryW"))
     {
       _dllCreationThreadDetected = true;
-      std::wcout << std::endl << "BaseThreadInitThunk: Detected thread creation on LoadLibraryW" << std::endl;
+      _logService->Log(L"BaseThreadInitThunk: Detected thread creation on LoadLibraryW");
     }
     else if (InjectionDetector::Instance()->IsLdrLoadDllOriginal((DWORD)lpStartAddress))
     {
       _dllCreationThreadDetected = true;
-      std::wcout << std::endl << "BaseThreadInitThunk: Detected thread creation on LdrLoadDll" << std::endl;
+      _logService->Log(L"BaseThreadInitThunk: Detected thread creation on LdrLoadDll");
     }
     else if (InjectionDetector::Instance()->IsLdrLoadDllHook((DWORD)lpStartAddress))
     {
       _dllCreationThreadDetected = true;
-      std::wcout << std::endl << "BaseThreadInitThunk: Detected thread creation on LdrLoadDllHook" << std::endl;
+      _logService->Log(L"BaseThreadInitThunk: Detected thread creation on LdrLoadDllHook");
     }
     else if (InjectionDetector::Instance()->IsLdrLoadDllStub((DWORD)lpStartAddress))
     {
       _dllCreationThreadDetected = true;
-      std::wcout << std::endl << "BaseThreadInitThunk: Detected thread creation on LdrLoadDllStub" << std::endl;
+      _logService->Log(L"BaseThreadInitThunk: Detected thread creation on LdrLoadDllStub");
     }
     else
     {
       DWORD startAddress = (DWORD)lpStartAddress;
       if (!InjectionDetector::Instance()->IsModuleAddress(startAddress))
       {
-        std::wcout << std::endl << "BaseThreadInitThunk: Detected creation of suspicious thread" << std::endl;
+        _logService->Log(L"BaseThreadInitThunk: Detected creation of suspicious thread");
       }
     }
     InjectionDetector::Instance()->CallBaseThreadInitThunkStub(LdrReserved, lpStartAddress, lpParameter);

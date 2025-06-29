@@ -2,6 +2,7 @@
 #include "InjectionDetector\InjectionDetector.h"
 #include "InjectionMonitor\InjectionMonitor.h"
 #include "InjectionGuard\InjectionGuard.h"
+#include "LogService\ConsoleLogger.h"
 
 void ShowInfo();
 void ShowHelp();
@@ -19,13 +20,13 @@ int wmain(int argc, wchar_t* argv[])
   {
     ShowInfo();
     std::wcout << "Starting in monitoring mode." << std::endl;
-    InjectionDetector::InjectionDetector::Instance()->Initialze(new InjectionDetector::InjectionMonitor());
+    InjectionDetector::InjectionDetector::Instance()->Initialze(new InjectionDetector::InjectionMonitor(new InjectionDetector::ConsoleLogger()));
   }
   else if (wcscmp(parameter, L"-g") == 0)
   {
     ShowInfo();
     std::wcout << "Starting in guard mode." << std::endl;
-    InjectionDetector::InjectionDetector::Instance()->Initialze(new InjectionDetector::InjectionGuard());
+    InjectionDetector::InjectionDetector::Instance()->Initialze(new InjectionDetector::InjectionGuard(new InjectionDetector::ConsoleLogger()));
   }
   else
   {

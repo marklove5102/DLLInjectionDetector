@@ -1,0 +1,85 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Resources">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+    <Filter Include="HookEngine">
+      <UniqueIdentifier>{e5980364-678e-4f5c-bb3e-e4625768da03}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="InjectionDetector">
+      <UniqueIdentifier>{c9a2c1c6-be03-4311-b561-9a6354f3a998}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="InjectionGuard">
+      <UniqueIdentifier>{2bd59269-8c28-4dbd-a8c4-5a6465846b10}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="InjectionMonitor">
+      <UniqueIdentifier>{3f3c6337-6faa-4da1-afe3-0fe669b844fe}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="LogService">
+      <UniqueIdentifier>{2ca1cc02-6a9a-400d-ba2f-0549ecf80bd6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TypeDefs">
+      <UniqueIdentifier>{1afd7c08-3d82-4933-ae7d-f5833f1988ec}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="main.cpp" />
+    <ClCompile Include="..\DLLInjectionDetector\HookEngine\HookEngine.cpp">
+      <Filter>HookEngine</Filter>
+    </ClCompile>
+    <ClCompile Include="..\DLLInjectionDetector\InjectionDetector\InjectionDetector.cpp">
+      <Filter>InjectionDetector</Filter>
+    </ClCompile>
+    <ClCompile Include="..\DLLInjectionDetector\InjectionGuard\InjectionGuard.cpp">
+      <Filter>InjectionGuard</Filter>
+    </ClCompile>
+    <ClCompile Include="..\DLLInjectionDetector\InjectionMonitor\InjectionMonitor.cpp">
+      <Filter>InjectionMonitor</Filter>
+    </ClCompile>
+    <ClCompile Include="..\DLLInjectionDetector\LogService\ConsoleLogger.cpp">
+      <Filter>LogService</Filter>
+    </ClCompile>
+    <ClCompile Include="..\DLLInjectionDetector\LogService\WindowLogger.cpp">
+      <Filter>LogService</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Resources\Resource1.h">
+      <Filter>Resources</Filter>
+    </ClInclude>
+    <ClInclude Include="..\DLLInjectionDetector\HookEngine\HookEngine.h">
+      <Filter>HookEngine</Filter>
+    </ClInclude>
+    <ClInclude Include="..\DLLInjectionDetector\InjectionDetector\IInjectionHandler.h">
+      <Filter>InjectionDetector</Filter>
+    </ClInclude>
+    <ClInclude Include="..\DLLInjectionDetector\InjectionDetector\InjectionDetector.h">
+      <Filter>InjectionDetector</Filter>
+    </ClInclude>
+    <ClInclude Include="..\DLLInjectionDetector\InjectionGuard\InjectionGuard.h">
+      <Filter>InjectionGuard</Filter>
+    </ClInclude>
+    <ClInclude Include="..\DLLInjectionDetector\InjectionMonitor\InjectionMonitor.h">
+      <Filter>InjectionMonitor</Filter>
+    </ClInclude>
+    <ClInclude Include="..\DLLInjectionDetector\LogService\ConsoleLogger.h">
+      <Filter>LogService</Filter>
+    </ClInclude>
+    <ClInclude Include="..\DLLInjectionDetector\LogService\ILogService.h">
+      <Filter>LogService</Filter>
+    </ClInclude>
+    <ClInclude Include="..\DLLInjectionDetector\LogService\WindowLogger.h">
+      <Filter>LogService</Filter>
+    </ClInclude>
+    <ClInclude Include="..\DLLInjectionDetector\TypeDefs\TypeDefs.h">
+      <Filter>TypeDefs</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="Resources\Resource.rc">
+      <Filter>Resources</Filter>
+    </ResourceCompile>
+  </ItemGroup>
+</Project>

@@ -14,6 +14,12 @@
     <ClCompile Include="InjectionGuard\InjectionGuard.cpp">
       <Filter>InjectionGuard</Filter>
     </ClCompile>
+    <ClCompile Include="LogService\ConsoleLogger.cpp">
+      <Filter>LogService</Filter>
+    </ClCompile>
+    <ClCompile Include="LogService\WindowLogger.cpp">
+      <Filter>LogService</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="HookEngine">
@@ -30,6 +36,9 @@
     </Filter>
     <Filter Include="InjectionDetector">
       <UniqueIdentifier>{7511a701-d49b-452b-a7ec-2229782f8813}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="LogService">
+      <UniqueIdentifier>{687dbf5f-44ab-4b9b-a5d3-bf3070f014e3}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -50,6 +59,15 @@
     </ClInclude>
     <ClInclude Include="InjectionGuard\InjectionGuard.h">
       <Filter>InjectionGuard</Filter>
+    </ClInclude>
+    <ClInclude Include="LogService\ConsoleLogger.h">
+      <Filter>LogService</Filter>
+    </ClInclude>
+    <ClInclude Include="LogService\ILogService.h">
+      <Filter>LogService</Filter>
+    </ClInclude>
+    <ClInclude Include="LogService\WindowLogger.h">
+      <Filter>LogService</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

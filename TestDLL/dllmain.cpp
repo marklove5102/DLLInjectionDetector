@@ -18,3 +18,9 @@ BOOL APIENTRY DllMain(HMODULE moduleHandle, DWORD reason, LPVOID reserved)
   return TRUE;
 }
 
+// Exporting function usable with SetWindowsHookEx
+extern "C" __declspec(dllexport) int NextHook(int code, WPARAM wParam, LPARAM lParam)
+{
+  return CallNextHookEx(NULL, code, wParam, lParam);
+}
+

@@ -13,8 +13,8 @@
   <PropertyGroup Label="Globals">
     <VCProjectVersion>17.0</VCProjectVersion>
     <Keyword>Win32Proj</Keyword>
-    <ProjectGuid>{6a82c55a-ba43-48aa-b76d-7c2556491961}</ProjectGuid>
-    <RootNamespace>DLLInjectionDetector</RootNamespace>
+    <ProjectGuid>{c82e56fd-431d-4110-a4c6-246681d3e08e}</ProjectGuid>
+    <RootNamespace>DLLInjectionDetectorWindow</RootNamespace>
     <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
@@ -45,21 +45,21 @@
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <OutDir>$(SolutionDir)Build\$(Configuration)\</OutDir>
-    <IntDir>$(SolutionDir)Build\$(Configuration)\obj\DLLInjectionDetector\</IntDir>
+    <IntDir>$(SolutionDir)Build\$(Configuration)\obj\DLLInjectionDetector_Window\</IntDir>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <OutDir>$(SolutionDir)Build\$(Configuration)\</OutDir>
-    <IntDir>$(SolutionDir)Build\$(Configuration)\obj\DLLInjectionDetector\</IntDir>
+    <IntDir>$(SolutionDir)Build\$(Configuration)\obj\DLLInjectionDetector_Window\</IntDir>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
       <WarningLevel>Level3</WarningLevel>
       <SDLCheck>true</SDLCheck>
-      <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>WIN32;_DEBUG;_WINDOWS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
     </ClCompile>
     <Link>
-      <SubSystem>Console</SubSystem>
+      <SubSystem>Windows</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
     </Link>
   </ItemDefinitionGroup>
@@ -69,35 +69,39 @@
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <SDLCheck>true</SDLCheck>
-      <PreprocessorDefinitions>WIN32;NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>WIN32;NDEBUG;_WINDOWS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
     </ClCompile>
     <Link>
-      <SubSystem>Console</SubSystem>
+      <SubSystem>Windows</SubSystem>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
       <GenerateDebugInformation>true</GenerateDebugInformation>
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="HookEngine\HookEngine.cpp" />
-    <ClCompile Include="InjectionDetector\InjectionDetector.cpp" />
-    <ClCompile Include="InjectionGuard\InjectionGuard.cpp" />
-    <ClCompile Include="InjectionMonitor\InjectionMonitor.cpp" />
-    <ClCompile Include="LogService\ConsoleLogger.cpp" />
-    <ClCompile Include="LogService\WindowLogger.cpp" />
+    <ClCompile Include="..\DLLInjectionDetector\HookEngine\HookEngine.cpp" />
+    <ClCompile Include="..\DLLInjectionDetector\InjectionDetector\InjectionDetector.cpp" />
+    <ClCompile Include="..\DLLInjectionDetector\InjectionGuard\InjectionGuard.cpp" />
+    <ClCompile Include="..\DLLInjectionDetector\InjectionMonitor\InjectionMonitor.cpp" />
+    <ClCompile Include="..\DLLInjectionDetector\LogService\ConsoleLogger.cpp" />
+    <ClCompile Include="..\DLLInjectionDetector\LogService\WindowLogger.cpp" />
     <ClCompile Include="main.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="HookEngine\HookEngine.h" />
-    <ClInclude Include="InjectionDetector\InjectionDetector.h" />
-    <ClInclude Include="InjectionDetector\IInjectionHandler.h" />
-    <ClInclude Include="InjectionGuard\InjectionGuard.h" />
-    <ClInclude Include="InjectionMonitor\InjectionMonitor.h" />
-    <ClInclude Include="LogService\ConsoleLogger.h" />
-    <ClInclude Include="LogService\ILogService.h" />
-    <ClInclude Include="LogService\WindowLogger.h" />
-    <ClInclude Include="TypeDefs\TypeDefs.h" />
+    <ClInclude Include="..\DLLInjectionDetector\HookEngine\HookEngine.h" />
+    <ClInclude Include="..\DLLInjectionDetector\InjectionDetector\IInjectionHandler.h" />
+    <ClInclude Include="..\DLLInjectionDetector\InjectionDetector\InjectionDetector.h" />
+    <ClInclude Include="..\DLLInjectionDetector\InjectionGuard\InjectionGuard.h" />
+    <ClInclude Include="..\DLLInjectionDetector\InjectionMonitor\InjectionMonitor.h" />
+    <ClInclude Include="..\DLLInjectionDetector\LogService\ConsoleLogger.h" />
+    <ClInclude Include="..\DLLInjectionDetector\LogService\ILogService.h" />
+    <ClInclude Include="..\DLLInjectionDetector\LogService\WindowLogger.h" />
+    <ClInclude Include="..\DLLInjectionDetector\TypeDefs\TypeDefs.h" />
+    <ClInclude Include="Resources\Resource1.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="Resources\Resource.rc" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

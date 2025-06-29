@@ -4,14 +4,22 @@
 
 namespace InjectionDetector
 {
+  class ILogService;
+}
+
+namespace InjectionDetector
+{
   class InjectionGuard : public IInjectionHandler
   {
   public:
-    InjectionGuard();
+    InjectionGuard(ILogService* logService);
     ~InjectionGuard();
 
     virtual NTSTATUS NTAPI HandleLdrLoadDll(PCWSTR DllPath, PULONG DllCharacteristics, PUNICODE_STRING DllName, PVOID* DllHandle);
     virtual ULONG __stdcall HandleRtlGetFullPathName_U(PWSTR FileName, ULONG BufferLength, PWSTR Buffer, PWSTR* FilePart) override;
     virtual void __fastcall HandleBaseThreadInitThunk(IN DWORD LdrReserved, IN LPTHREAD_START_ROUTINE lpStartAddress, IN LPVOID lpParameter) override;
+
+  private:
+    ILogService* _logService;
   };
 }

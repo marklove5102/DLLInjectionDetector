@@ -4,10 +4,15 @@
 
 namespace InjectionDetector
 {
+  class ILogService;
+}
+
+namespace InjectionDetector
+{
   class InjectionMonitor : public IInjectionHandler
   {
   public:
-    InjectionMonitor();
+    InjectionMonitor(ILogService* logService);
     ~InjectionMonitor();
 
     virtual NTSTATUS NTAPI HandleLdrLoadDll(PCWSTR DllPath, PULONG DllCharacteristics, PUNICODE_STRING DllName, PVOID* DllHandle);
@@ -16,5 +21,6 @@ namespace InjectionDetector
 
   private:
     bool _dllCreationThreadDetected;
+    ILogService* _logService;
   };
 }

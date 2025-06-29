@@ -61,6 +61,11 @@ typedef struct _TEB {
   // ... rest of the structure omitted
 } TEB;
 
+#ifndef _NTDEF_
+typedef _Return_type_success_(return >= 0) LONG NTSTATUS;
+typedef NTSTATUS* PNTSTATUS;
+#endif
+
 typedef void __fastcall BaseThreadInitThunk(IN DWORD LdrReserved, IN LPTHREAD_START_ROUTINE lpStartAddress, IN LPVOID lpParameter);
 typedef NTSTATUS NTAPI LdrLoadDll(_In_opt_ PCWSTR DllPath, _In_opt_ PULONG DllCharacteristics, _In_ PUNICODE_STRING DllName, _Out_ PVOID* DllHandle);
 typedef ULONG NTAPI RtlGetFullPathName_U(_In_ PWSTR FileName, _In_ ULONG BufferLength, _Out_writes_bytes_(BufferLength) PWSTR Buffer, _Out_opt_ PWSTR* FilePart);
