@@ -4,13 +4,15 @@ A DLL Injection Detector for Windows.
 
 ## Disclaimer  
 
-The DLL Injection Detector currently supports only x86. However, it can be easily adapted for x64 by replacing the API hooking engine with one that is compatible with 64-bit environments, such as **Microsoft Detours**.
-My primary goal was to focus on the core functionality of injection detection without introducing unnecessary overhead from large external libraries. Since API hooking is significantly simpler in x86, I chose to implement a minimalistic, custom hooking mechanism that is sufficient for the intended purpose.  
+The DLL Injection Detector currently supports only x86. However, it can be easily adapted for x64 by replacing the hooking engine with one that is compatible with 64-bit environments, such as **Microsoft Detours**.
+My primary goal was to focus on the core functionality of injection detection without introducing unnecessary overhead from large external libraries. Since API hooking is significantly simpler in x86, I chose to implement a minimalistic, custom hooking engine that is sufficient for the intended purpose.  
 
 ## Usage  
 
 ``DLLInjectionDetector.exe -m``  : Start in monitoring mode (monitoring only)  
 ``DLLInjectionDetector.exe -g``  : Start in guard mode (blocking dll injections)  
+
+Afterwards the DLLInjectionDetector is ready and waiting for DLL injection attempts. For this purpose, you can use the TestDLL.dll provided with the solution, for example.
 
 ## A Brief Introduction to DLL Injection  
 
