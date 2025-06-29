@@ -47,7 +47,7 @@ void ShowInfo()
 {
   std::wcout << std::endl;
   std::wcout << "..::[Fatmike 2025]::.." << std::endl << std::endl;
-  std::wcout << "Version: DLL Injection Detector 0.0.2" << std::endl;
+  std::wcout << "Version: DLL Injection Detector 0.0.3" << std::endl;
 }
 
 void ShowHelp()

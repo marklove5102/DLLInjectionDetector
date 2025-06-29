@@ -22,7 +22,7 @@ LRESULT CALLBACK DlgProc(HWND hWnd, UINT Msg, WPARAM wParam, LPARAM lParam)
   {
     case WM_INITDIALOG:
     {
-      //SendMessage(hWnd, WM_SETICON, ICON_SMALL, (LPARAM)hIcon);
+      SetDlgItemText(hWnd, IDC_LOG, L"Version: DLL Injection Detector 0.0.3");
       break;
     }
     case WM_COMMAND:
