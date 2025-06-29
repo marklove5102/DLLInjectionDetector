@@ -16,7 +16,7 @@ My primary goal was to focus on the core functionality of injection detection wi
 Afterwards the DLLInjectionDetector is ready and waiting for DLL injection attempts. For this purpose, you can use the TestDLL.dll provided with the solution, for example.  
 
 ### Windows Application
-The windows application (``DLLInjectionDetector_Window.exe``) was added to be able to test against *SetWindowsHookEx* hooking.  
+The windows application (``DLLInjectionDetector_Window.exe``) was added to be able to test against *SetWindowsHookEx* DLL injection.  
 
 Start ``DLLInjectionDetector_Window.exe`` and click the ``Start`` button to start in guard mode. Monitoring mode is not implemented in the Windows application.  
 
