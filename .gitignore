@@ -5,3 +5,5 @@
 /.vs
 /Build
 *.user
+/DLLInjectionDetector_Window/Resources/Resource.aps
+/DLLInjectionDetector_Window/Resource.aps
