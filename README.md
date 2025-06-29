@@ -20,7 +20,9 @@ The windows application (``DLLInjectionDetector_Window.exe``) was added to be ab
 
 Start ``DLLInjectionDetector_Window.exe`` and click the ``Start`` button to start in guard mode. Monitoring mode is not implemented in the Windows application.  
 
-Afterwards the DLLInjectionDetector is ready and waiting for DLL injection attempts. For this purpose, you can use the TestDLL.dll provided with the solution, for example.  
+Afterwards the DLLInjectionDetector is ready and waiting for DLL injection attempts. For this purpose, you can use the TestDLL.dll provided with the solution, for example. 
+
+> Please note that **after** a DLL has been injected into the application, it has to be restarted and armed using ``Start`` button to set up guard mode.
 
 ## A Brief Introduction to DLL Injection  
 
