@@ -1,6 +1,7 @@
 # Fatmike's DLL Injection Detector  
 
 A DLL Injection Detector for Windows.  
+Keywords: DLL Injection Detection, Anti cheat, API hooking
 
 ## Disclaimer  
 
