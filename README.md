@@ -9,14 +9,14 @@ The DLL Injection Detector currently supports only x86. However, it can be easil
 My primary goal was to focus on the core functionality of injection detection without introducing unnecessary overhead from large external libraries. Since API hooking is significantly simpler in x86, I chose to implement a minimalistic, custom hooking engine that is sufficient for the intended purpose.  
 
 ## Usage  
-### Console Application
+### Console Application (Demo)
 
 ``DLLInjectionDetector.exe -m``  : Start in monitoring mode (monitoring only)  
 ``DLLInjectionDetector.exe -g``  : Start in guard mode (blocking dll injections)  
 
 Afterwards the DLLInjectionDetector is ready and waiting for DLL injection attempts. For this purpose, you can use the TestDLL.dll provided with the solution, for example.  
 
-### Windows Application
+### Windows Application (Demo)
 The windows application (``DLLInjectionDetector_Window.exe``) was added to be able to test against *SetWindowsHookEx* DLL injection.  
 
 Start ``DLLInjectionDetector_Window.exe`` and click the ``Start`` button to start in guard mode. Monitoring mode is not implemented in the Windows application.  
